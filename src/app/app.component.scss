@@ -1,0 +1,60 @@
+.box {
+  height: 180px;
+  width: 180px;
+  overflow: auto;
+  background: red;
+}
+
+.products--grid {
+  display: flex;  // aqui estoy colocando ajuste a mobile
+  flex-direction: column;  // que se muestren las imagenes en columna
+  div {
+    img {
+      width: 100%;  // aqui le digo que se ajusten las imagenes al 100% del width del momento
+      border-radius: 10px;  // le coloco redondeado a las imagenes
+    }
+    h2, p {
+      margin: 0;  // le coloco margen al h2  y p que contiene el nombre y precio del producto en el archivo html
+    }
+  }
+}
+
+.message-error {
+  background: red;
+  color: white;
+  opacity: 0; // el opaciti es para mostrar, si esta en cero no se muestra
+  transition: all linear .5s;  // transicion ayuda a la animación de los elementos
+  &.invalid {
+    opacity: 1;  // si el opacity cambia a 1 se muestra
+  }
+}
+
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+  &.invalid {
+    border-color: red;
+  }
+  &.valid {
+    border-color: greenyellow;
+  }
+}
+
+
+
+.styles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+//ahora pensamos en adaptarlo a otros dispositivos
+
+@media screen and (min-width: 40em) {  // con este media query indico los tamaños que tendria en una tablet en adelante
+  .products--grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); //para crear una columna de 5 imagenes y que esten fraccionadas
+    grid-gap: 15px;  // para que tenga un espacio entre cada una de las imagenes
+  }
+}
+
